@@ -5,7 +5,7 @@ export default function App() {
   console.log(StatusBar.currentHeight)
   return (
     <>
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight }}>
         <View style={{ padding: 16, backgroundColor: 'green' }}>
           <Text>
             Search
