@@ -31,3 +31,20 @@ const label = (theme) => `
     font-size: ${theme.fontSizes.body};
     font-weight: ${theme.fontWeights.medium};
 `;
+
+const variants = {
+  body,
+  hint,
+  error,
+  caption,
+  label,
+};
+
+export const Text = styled.Text`
+  ${({ theme }) => defaultTextStyles(theme)}
+  ${({ variant, theme }) => variants[variant](theme)}
+`;
+
+Text.defaultTextStyles = {
+  variant: "body",
+};
