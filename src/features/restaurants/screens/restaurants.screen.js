@@ -15,12 +15,18 @@ const SearchView = styled.View`
   padding: ${(props) => props.theme.space[3]};
 `;
 
+const RestaurantList = styled(FlatList).attrs({
+  contentContainerStyle: {
+    padding: 16,
+  },
+})``;
+
 export const RestaurantsScreen = () => (
   <SafeAreaContainer>
     <SearchView>
       <Searchbar placeholder="Search" />
     </SearchView>
-    <FlatList
+    <RestaurantList
       data={[
         { name: 1 },
         { name: 2 },
@@ -39,8 +45,6 @@ export const RestaurantsScreen = () => (
         </Spacer>
       )}
       keyExtractor={(item) => item.name}
-      // eslint-disable-next-line react-native/no-inline-styles
-      contentContainerStyle={{ padding: 16 }}
     />
   </SafeAreaContainer>
 );
