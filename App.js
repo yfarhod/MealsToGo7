@@ -10,7 +10,6 @@ import { Text } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { SafeAreaContainer } from "./src/components/utility/safe-area.component";
 import { Spacer } from "./src/components/spacer/spacer.component";
 
 import {
@@ -21,19 +20,15 @@ import {
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
 const Maps = () => (
-  <SafeAreaContainer>
-    <Spacer position="left" size="large">
-      <Text>Maps!</Text>
-    </Spacer>
-  </SafeAreaContainer>
+  <Spacer position="left" size="large">
+    <Text>Maps!</Text>
+  </Spacer>
 );
 
 const SettingsScreen = () => (
-  <SafeAreaContainer>
-    <Spacer position="left" size="large">
-      <Text>Settings!</Text>
-    </Spacer>
-  </SafeAreaContainer>
+  <Spacer position="left" size="large">
+    <Text>Settings!</Text>
+  </Spacer>
 );
 
 const Tab = createBottomTabNavigator();
