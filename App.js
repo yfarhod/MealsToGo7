@@ -21,7 +21,7 @@ import {
 
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
-const Maps = () => (
+const Map = () => (
   <Spacer position="left" size="large">
     <Text>Maps!</Text>
   </Spacer>
@@ -58,8 +58,10 @@ export default function App() {
                 let iconName;
 
                 if (route.name === "Restaurants") {
-                  iconName = focused ? "fast-food" : "fast-food-outline";
-                } else if (route.name === "Maps") {
+                  iconName = focused
+                    ? "md-restaurant"
+                    : "md-restaurant-outline";
+                } else if (route.name === "Map") {
                   iconName = focused ? "map" : "map-outline";
                 } else if (route.name === "Settings") {
                   iconName = focused ? "settings" : "settings-outline";
@@ -73,7 +75,7 @@ export default function App() {
             })}
           >
             <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
-            <Tab.Screen name="Maps" component={Maps} />
+            <Tab.Screen name="Map" component={Map} />
             <Tab.Screen name="Settings" component={SettingsScreen} />
           </Tab.Navigator>
         </NavigationContainer>
