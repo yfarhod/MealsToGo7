@@ -4,8 +4,14 @@ import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/infrastructure/theme";
 
+import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
+
+import { Text } from "react-native";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { SafeAreaContainer } from "./src/components/utility/safe-area.component";
+import { Spacer } from "./src/components/spacer/spacer.component";
 
 import {
   useFonts as useOswald,
@@ -14,24 +20,21 @@ import {
 
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
-import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
-
-import { View, Text } from "react-native";
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-function Maps() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+const Maps = () => (
+  <SafeAreaContainer>
+    <Spacer position="left" size="large">
       <Text>Maps!</Text>
-    </View>
-  );
-}
+    </Spacer>
+  </SafeAreaContainer>
+);
+
+const SettingsScreen = () => (
+  <SafeAreaContainer>
+    <Spacer position="left" size="large">
+      <Text>Settings!</Text>
+    </Spacer>
+  </SafeAreaContainer>
+);
 
 const Tab = createBottomTabNavigator();
 
@@ -54,8 +57,8 @@ export default function App() {
         <NavigationContainer>
           <Tab.Navigator>
             <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
             <Tab.Screen name="Maps" component={Maps} />
+            <Tab.Screen name="Settings" component={SettingsScreen} />
           </Tab.Navigator>
         </NavigationContainer>
       </ThemeProvider>
