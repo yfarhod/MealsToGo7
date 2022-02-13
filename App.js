@@ -14,8 +14,6 @@ import { Spacer } from "./src/components/spacer/spacer.component";
 
 import { Ionicons } from "@expo/vector-icons";
 
-import { restaurantsRequest } from "./src/services/restaurants/restaurants.service";
-
 import {
   useFonts as useOswald,
   Oswald_400Regular,
