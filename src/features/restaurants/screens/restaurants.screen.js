@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FlatList } from "react-native";
 import { Searchbar } from "react-native-paper";
 import styled from "styled-components/native";
 import { Spacer } from "../../../components/spacer/spacer.component";
+import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
 
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
@@ -16,30 +17,22 @@ const RestaurantList = styled(FlatList).attrs({
   },
 })``;
 
-export const RestaurantsScreen = () => (
-  <>
-    <SearchView>
-      <Searchbar placeholder="Search" />
-    </SearchView>
-    <RestaurantList
-      data={[
-        { name: 1 },
-        { name: 2 },
-        { name: 3 },
-        { name: 4 },
-        { name: 5 },
-        { name: 6 },
-        { name: 7 },
-        { name: 8 },
-        { name: 9 },
-        { name: 10 },
-      ]}
-      renderItem={() => (
-        <Spacer position="bottom" size="large">
-          <RestaurantInfoCard />
-        </Spacer>
-      )}
-      keyExtractor={(item) => item.name}
-    />
-  </>
-);
+export const RestaurantsScreen = () => {
+  const restaurantContext = useContext(RestaurantContext);
+  return (
+    <>
+      <SearchView>
+        <Searchbar placeholder="Search" />
+      </SearchView>
+      <RestaurantList
+        data={restaurantContext.restaurants}
+        renderItem={() => (
+          <Spacer position="bottom" size="large">
+            <RestaurantInfoCard />
+          </Spacer>
+        )}
+        keyExtractor={(item) => item.name}
+      />
+    </>
+  );
+};
