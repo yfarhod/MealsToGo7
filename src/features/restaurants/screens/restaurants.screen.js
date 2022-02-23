@@ -18,15 +18,15 @@ const RestaurantList = styled(FlatList).attrs({
 })``;
 
 export const RestaurantsScreen = () => {
-  const restaurantContext = useContext(RestaurantContext);
+  const { isLoading, error, restaurants } = useContext(RestaurantContext);
   return (
     <>
       <SearchView>
         <Searchbar placeholder="Search" />
       </SearchView>
       <RestaurantList
-        data={restaurantContext.restaurants}
-        renderItem={(item) => {
+        data={restaurants}
+        renderItem={({ item }) => {
           console.log(item);
           return (
             <Spacer position="bottom" size="large">
